@@ -1,19 +1,42 @@
-fichero = open("Calorias.txt")
+fichero = open("guia.txt")
 lineas = fichero.read().splitlines()
-lista = []
-tresMayores = 0
-c = 0
+puntosTu = 0
+a = 1 #roca
+b = 2 #papel
+c = 3 #tijeras
 
+x = a #Perdida
+y = b #Empate
+z = c #Ganar
+
+print(lineas)
 for i in lineas:
-     if i != "":
-          c += int(i)
-          lista.append(c)
-     else:
-          c = 0
 
-lista.sort(reverse=True)
+    if i == "A X": #Perdida
+        puntosTu += 3
 
-for x in lista[0:3]:
-     tresMayores += x
+    elif i == "B Y": #Empate
+        puntosTu += 5
 
-print("La suma de los tres mayores es: ",tresMayores)
+    elif i == "C Z": #Ganar
+        puntosTu += 7
+
+    elif i == "A Y": #Empate
+        puntosTu += 4
+
+    elif i == "A Z": #Ganar
+        puntosTu += 8
+
+    elif i == "B X": #Perdida
+        puntosTu += 1
+
+    elif i == "B Z": #Ganar
+        puntosTu += 9
+
+    elif i == "C X": #Perdida
+        puntosTu += 2
+
+    elif i == "C Y": #Empate
+        puntosTu += 6
+
+print(puntosTu)
